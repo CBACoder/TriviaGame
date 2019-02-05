@@ -6,7 +6,7 @@ $(document).ready(function() {
     var correctAnswers = 0;
     var incorrectAnswers =0;
     var unAnswered =0;
-    var quizTime = 10;
+    var quizTime = 40;
     var intervalId;
     var isRunning=false;
     var radioButtonArray=["q1","q2","q3"];
@@ -60,7 +60,7 @@ $(document).ready(function() {
     
     // add a click for the start game to hide the start button and display the quiz
     $("#btnStart").on("click", function(){
-        quizTime = 10;
+        quizTime = 40;
         $("#startDiv").hide();
         $("#mainQuiz").show();
         run();
@@ -69,31 +69,16 @@ $(document).ready(function() {
     // add click function for stop quiz and display result div
     $("#btnStop").on("click", function(){
         stop();
-        $("#mainQuiz").hide();
-        for(let j=0; j<radioButtonArray.length; j++){
-            getAnswers(radioButtonArray[j]);
-        }
-
-        $("#displayResult").show();
-
-        $('#correctAnswers').text('Correct Answers : '+correctAnswers);
-        $('#inCorrectAnswers').text('Incorrect Answers : '+incorrectAnswers);
-        $('#unAnswered').text('Unswered : '+unAnswered);
+        readResults();
     })
 
     // add a click function for the restart quiz
     $("#btnResetQuiz").on("click",function(){
         stop();
-        console.log("interval id : ",intervalId);
-        console.log('is running true/false: ',isRunning);
-        console.log("quiz initial start : ",quizTime);
         $("#displayResult").hide();
         $("#mainQuiz").show();
-        
+
         run();
-        console.log("interval id : ",intervalId);
-        console.log('is running true/false: ',isRunning);
-        console.log("quiz initial start : ",quizTime);
     })
 
     // add answer selection click function
@@ -107,15 +92,14 @@ $(document).ready(function() {
         if (quizTime === 0) {
             isRunning = false;
             clearInterval(intervalId);
-            $("#mainQuiz").hide();
-            $("#displayResult").show();
+            readResults();
         }
     }
 
     // stop quiz timer
     function stop() {
-        isRunning = false;
-        quizTime = 10;
+        isRunniquizTimeng = false;
+        quizTime = 40;
         clearInterval(intervalId);
     }
 
@@ -140,19 +124,31 @@ $(document).ready(function() {
             if (rdButton[i].checked) {
                 rdButtonValue = rdButton[i].value;
                 // if answer is correct increment otherwise decrement
-                if(radioName === "q1" && rdButtonValue === 'D'){
+                if((radioName === "q1" && rdButtonValue === 'D') || (radioName === "q2" && rdButtonValue === 'B' ) ||  (radioName === "q3" && rdButtonValue === 'C' ) ){
                     correctAnswers++; 
                 }else{
                     incorrectAnswers++;
                 }
                 // only one radio can be logically checked, don't check the rest
                 break;
-            }else{
-                //increment unanswered
-                unAnswered++;
             }
         }
     }
 
+    // function read results
+    function readResults(){
+        $("#mainQuiz").hide();
+        for(let j=0; j<radioButtonArray.length; j++){
+            getAnswers(radioButtonArray[j]);
+        }
 
+        $("#displayResult").show();
+        unAnswered = radioButtonArray.length - (correctAnswers+incorrectAnswers);
+        $('#correctAnswers').text('Correct Answers : '+correctAnswers);
+        $('#inCorrectAnswers').text('Incorrect Answers : '+incorrectAnswers);
+        $('#unAnswered').text('Unswered : '+unAnswered);
+        correctAnswers=0;
+        incorrectAnswers=0;
+        unAnswered =0;
+    }
 });
