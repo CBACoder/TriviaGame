@@ -6,7 +6,7 @@ $(document).ready(function() {
     var correctAnswers = 0;
     var incorrectAnswers =0;
     var unAnswered =0;
-    var quizTime = 40;
+    var quizTime = 10;
     var intervalId;
     var isRunning=false;
     var radioButtonArray=["q1","q2","q3"];
@@ -60,7 +60,7 @@ $(document).ready(function() {
     
     // add a click for the start game to hide the start button and display the quiz
     $("#btnStart").on("click", function(){
-        quizTime = 40;
+        quizTime = 10;
         $("#startDiv").hide();
         $("#mainQuiz").show();
         run();
@@ -75,10 +75,16 @@ $(document).ready(function() {
     // add a click function for the restart quiz
     $("#btnResetQuiz").on("click",function(){
         stop();
+        console.log("interval id : ",intervalId);
+        console.log('is running true/false: ',isRunning);
+        console.log("quiz initial start : ",quizTime);
         $("#displayResult").hide();
         $("#mainQuiz").show();
 
         run();
+        console.log("interval id : ",intervalId);
+        console.log('is running true/false: ',isRunning);
+        console.log("quiz initial start : ",quizTime);
     })
 
     // add answer selection click function
@@ -98,8 +104,8 @@ $(document).ready(function() {
 
     // stop quiz timer
     function stop() {
-        isRunniquizTimeng = false;
-        quizTime = 40;
+        isRunning = false;
+        quizTime = 10;
         clearInterval(intervalId);
     }
 
@@ -151,4 +157,6 @@ $(document).ready(function() {
         incorrectAnswers=0;
         unAnswered =0;
     }
+
+
 });
