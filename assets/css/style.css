@@ -1,0 +1,40 @@
+#quiz{
+    background: lightskyblue;
+    height: 800px;
+    width: 980px;
+    margin: auto;
+}
+#timeleft{
+    background: coral;
+    margin:auto;
+    width: 980px;
+    height: 40px;
+    text-align: center;
+}
+
+.row{
+    margin-bottom: 5px;
+}
+
+#mainQuiz{
+display: none;
+margin: auto;
+width: 960px;   
+height: 700px;
+}
+
+.container1,#displayResult{
+    background: lightskyblue;
+    margin:auto;
+    width: 960px;
+    height: 700px;
+    text-align: center;
+}
+
+#btnStart{
+    color: red;
+}
+
+#displayResult{
+    text-align: center;
+}

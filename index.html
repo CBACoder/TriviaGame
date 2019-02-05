@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Page Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Bootstrap File -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+             
+        <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+            <!-- jQuery -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <script src="assets/javascript/app.js"></script>
+    </head>
+    <body>
+        <div class="container1" id="startDiv">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 id="">Totally Trivial Trivia! </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button id="btnStart" class="btn btn-default btn-lg">Start Quiz</button>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="mainQuiz">
+
+            <div class="row" id="timeremaining">
+                <div class="col-md-12" id="timeleft">
+                    <h5 id="timeRemaining">Time remaining</h5>
+                </div>
+            </div>
+
+            <div class="row">
+                <p>Who was the first president of USA?</p>
+                <div class="col-md-12">
+                    <input name="q1" class="answerSelector" type="radio" value="A">Ronald Reagan</input>
+                    <input name="q1" class="answerSelector" type="radio" value="B">Denis Robers </input>
+                    <input name="q1" class="answerSelector" type="radio" value="C">Barack Obama</input>
+                    <input name="q1" class="answerSelector" type="radio" value="D">George Washington</input>
+                </div>
+            </div>
+            <div class="row">
+                <p>In which year did Minnesota become a state?</p>
+                <div class="col-md-12">
+                    <input name="q2" class="answerSelector" type="radio" value="A">1677</input>
+                    <input name="q2" class="answerSelector" type="radio" value="B">1858</input>
+                    <input name="q2" class="answerSelector" type="radio" value="C">1878</input>
+                    <input name="q2" class="answerSelector" type="radio" value="D">1892</input>
+                </div>
+            </div>
+            <div class="row">
+                <p>What does acroname ajax stand for?</p>
+                <div class="col-md-12">
+                    <input name="q3" class="answerSelector" type="radio" value="A">Asynchronus JAva</input>
+                    <input name="q3" class="answerSelector" type="radio" value="B">Javascript</input>
+                    <input name="q3" class="answerSelector" type="radio" value="C">Asynchronus Javascript</input>
+                    <input name="q3" class="answerSelector" type="radio" value="D">Anoted Javax</input>
+                </div>
+            </div>  
+            <div class="row" id="stopQuiz">
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                        <button id="btnStop" class="btn btn-default btn-lg">Stop Quiz</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="displayResult">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Totally Trivial Trivia! Results</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>All Done !</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p id="correctAnswers"></p>
+                    <p id="inCorrectAnswers"></p>
+                    <p id="unAnswered"></p>
+                </div>
+            </div>
+            <div class="row" id="restartQuiz">
+                <div class="col-md-12">
+                    <button id="btnResetQuiz" class="btn btn-default btn-lg">Restart Quiz</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
